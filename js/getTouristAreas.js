@@ -1,4 +1,4 @@
-import { config } from "./api.js";
+import { config } from "../api.js";
 
 const getTouristAreas = () => {
   console.log('config');
@@ -31,8 +31,6 @@ const getTouristAreas = () => {
               <p id="tourAreaAddress">주소 : ${item.addr1}</p>
             </li>`)
         }
-        
-        
       })
     }
   })
@@ -46,5 +44,5 @@ const moveDetail = (url, id) => {
 
 $("#tourAreas").on("click", ".area", function(){
   console.log(this.id);
-  moveDetail('areaDetail.html',this.id);
+  moveDetail('./pages/areaDetail.html',this.id);
 });
