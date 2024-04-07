@@ -5,9 +5,18 @@ const urlParams = new URLSearchParams(window.location.search);
 const contentid = urlParams.get('contentid');
 const title = urlParams.get('title');
 const image = urlParams.get('image');
-
+const addr = urlParams.get('addr1');
 // 데이터를 화면에 출력
-document.getElementById('dataDisplay').innerText = 'Received contentid: ' + contentid + title + image;
+if(image !== ""){
+  document.getElementById('areaInfo').innerHTML = 
+  `<h3>${title}</h3>
+    <img src="${image}" alt="${title}">`;
+} else {
+  document.getElementById('areaInfo').innerHTML = 
+  `<h3>${title}</h3>
+    <img src="../img/tuorareadefault.png" alt="${title}">`;
+}
+
 
 const getAreaInfo = () => {
   console.log('config');
@@ -18,7 +27,14 @@ const getAreaInfo = () => {
   .done((data)=>{
     const areaInfo = data.response.body.items.item[0];
     console.log(areaInfo);
-    // console.log(tourlistareas.item);
+    $("#areaInfo").append(`<h4>편의정보 안내</h4>`)
+    for(const item in areaInfo){
+      if(areaInfo[item] !== "" && item !== "contentid"){
+        $("#areaInfo").append(`<li>${item} : ${areaInfo[item]}</li>`)
+      }
+    }
+    $("#areaInfo").append(`<h4>오시는 길</h4><p id="">${addr}</p>`)
+    
 
   })
 }

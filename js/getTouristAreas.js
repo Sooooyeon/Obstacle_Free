@@ -16,14 +16,14 @@ const getTouristAreas = () => {
       $.map(tourlistareas.item, function(item){
         if(item.firstimage !==""){
           return $("#tourAreas").append(
-          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}">
+          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
             <img src=${item.firstimage} alt="${item.title}">
             <p id="tourAreaTitle">${item.title}</p>
             <p id="tourAreaAddress">주소 : ${item.addr1}</p>
           </li>`)
         } else {
           return $("#tourAreas").append(
-            `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}">
+            `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
               <img src="./img/tuorareadefault.png" alt="${item.title}">
               <p id="tourAreaTitle">${item.title}</p>
               <p id="tourAreaAddress">주소 : ${item.addr1}</p>
@@ -37,14 +37,12 @@ const getTouristAreas = () => {
 getTouristAreas();
 
 
-const moveDetail = (url, title, id , image) => {
-  window.location.href = `${url}?title=${title}&contentid=${id}&image=${image}`;
+const moveDetail = (url, title, id, image, addr1) => {
+  window.location.href = `${url}?title=${title}&contentid=${id}&image=${encodeURIComponent(image)}&addr1=${encodeURIComponent(addr1)}`;
 }
 
 $("#tourAreas").on("click", ".area", function(){
   const image = $(this).data("image"); 
-  console.log(this.id);
-  console.log(this.title);
-  console.log(image);
-  moveDetail('./pages/areaDetail.html', this.title,this.id, image);
+  const addr1 = $(this).data("addr1"); 
+  moveDetail('./pages/areaDetail.html', this.title, this.id, image, addr1);
 });
