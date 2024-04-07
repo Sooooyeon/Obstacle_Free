@@ -18,15 +18,15 @@ const getTouristAreas = () => {
         console.log(item);
         if(item.firstimage !==""){
           return $("#tourAreas").append(
-          `<li id=${item.contentid} class="area">
-            <img src=${item.firstimage} alt=${item.title}>
+          `<li id=${item.contentid} title="${item.title}" class="area">
+            <img src=${item.firstimage} alt="${item.title}">
             <p id="tourAreaTitle">${item.title}</p>
             <p id="tourAreaAddress">주소 : ${item.addr1}</p>
           </li>`)
         } else {
           return $("#tourAreas").append(
-            `<li id=${item.contentid} class="area">
-              <img src="./img/tuorareadefault.png" alt=${item.title}>
+            `<li id=${item.contentid} title="${item.title}" class="area">
+              <img src="./img/tuorareadefault.png" alt="${item.title}">
               <p id="tourAreaTitle">${item.title}</p>
               <p id="tourAreaAddress">주소 : ${item.addr1}</p>
             </li>`)
@@ -38,11 +38,13 @@ const getTouristAreas = () => {
 
 getTouristAreas();
 
-const moveDetail = (url, id) => {
-  window.location.href = url + '?contentid=' + id;
+const moveDetail = (url, title, id) => {
+  window.location.href = url + '?title=' + title + '&contentid=' + id;
 }
 
 $("#tourAreas").on("click", ".area", function(){
   console.log(this.id);
-  moveDetail('./pages/areaDetail.html',this.id);
+  console.log(this.title);
+  console.log(this);
+  moveDetail('./pages/areaDetail.html', this.title,this.id);
 });
