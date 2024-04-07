@@ -9,9 +9,17 @@
 </head>
 
 <body>
+  <header id="header"></header>
   <div>
     <ul id="tourAreas"></ul>
   </div>
+  <footer id="footer"></footer>
+  <script>
+    $(function () {
+      $("#header").load("./pages/common/header.html");
+      $("#footer").load("./pages/common/footer.html");
+    })
+  </script>
   <script type="module" src="./js/getTouristAreas.js"></script>
 
 </body>
