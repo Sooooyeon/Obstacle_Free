@@ -1,0 +1,95 @@
+
+:root{
+  --main-color : #004b9b;
+  --sub-color : #174274;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+/* reset */
+body {
+  margin: 0;
+  /* background-color: #fcffca; */
+}
+
+h1,
+h2,
+h3 {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: 0;
+  background: none;
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* css 시작 */
+body {
+  height: 100%;
+  overflow: auto;
+  font-family: 'Pretendard-regular';
+
+}
+
+header{
+  max-width: 1440px;
+  margin: 5rem auto;
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+header img{
+  width: 15rem;
+}
+
+header ul li{
+  float: left;
+  padding: 2rem;
+}
+
+header ul li:hover{
+  color: var(--main-color);
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 5rem;
+}
