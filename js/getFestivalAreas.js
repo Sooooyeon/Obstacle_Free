@@ -4,7 +4,7 @@ const getTouristAreas = () => {
   console.log('config');
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=6&pageNo=2&MobileOS=ETC&MobileApp=TestApp&contentTypeId=15&_type=json`
+    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=6&pageNo=1&MobileOS=ETC&MobileApp=TestApp&contentTypeId=15&_type=json`
   })
   .done((data)=>{
     const tourlistareas = data.response.body.items;
@@ -24,7 +24,7 @@ const getTouristAreas = () => {
         } else {
           return $("#tourAreas").append(
             `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
-              <img src="./img/tuorareadefault.png" alt="${item.title}">
+              <img src="../img/tuorareadefault.png" alt="${item.title}">
               <p id="tourAreaTitle">${item.title}</p>
               <p id="tourAreaAddress">주소 : ${item.addr1}</p>
             </li>`)
@@ -44,5 +44,5 @@ const moveDetail = (url, title, id, image, addr1) => {
 $("#tourAreas").on("click", ".area", function(){
   const image = $(this).data("image"); 
   const addr1 = $(this).data("addr1"); 
-  moveDetail('./pages/areaDetail.html', this.title, this.id, image, addr1);
+  moveDetail('../pages/areaDetail.html', this.title, this.id, image, addr1);
 });
