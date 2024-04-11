@@ -6,8 +6,8 @@
 }
 
 :root{
-  --main-color : #004b9b;
-  --sub-color : #174274;
+  --main-color : #334AAA;
+  --sub-color : #F2F6FF;
 }
 
 html{
@@ -69,6 +69,7 @@ body {
   height: 100%;
   overflow: auto;
   font-family: 'Pretendard-regular';
+  box-sizing: border-box;
 
 }
 
@@ -109,4 +110,55 @@ header{
   0%{transform: rotate(-3deg);}
   50%{transform: rotate(3deg);}
   100%{transform: rotate(-3deg);}
+}
+
+#tourAreas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#tourAreas .area {
+  width: 33rem;
+  height: 33rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#tourAreas .area img {
+  width: 33rem;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+#tourAreaTitle {
+  font-size: 2rem;
+  position: absolute;
+  padding: 1.4rem;
+  top: 3rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5rem;
+  color: var(--main-color);
+  font-family: 'GongGothicMedium';
+}
+
+#tourAreaAddress {
+  width: 30rem;
+  position: absolute;
+  bottom: 3rem;
+  font-size: 2rem;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--main-color);
 }
