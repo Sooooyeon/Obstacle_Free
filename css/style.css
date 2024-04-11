@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'GongGothicMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root{
   --main-color : #004b9b;
@@ -67,29 +73,40 @@ body {
 }
 
 header{
-  max-width: 1440px;
-  margin: 5rem auto;
+  font-family: 'GongGothicMedium';
+  height: 140px;
+  background: rgb(46, 77, 172);
+  background: linear-gradient(90deg, rgba(46, 77, 172, 1) 0%, rgba(115, 34, 142, 1) 100%);
+}
+
+.headerWrap{
+  max-width: 1400px;
+  height: 140px;
+  margin: 0 auto;
   font-size: 2.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--main-color);
   font-weight: 500;
+  color: white;
 }
 
-header img{
-  width: 15rem;
+.headerWrap img{
+  width: 8.6rem;
+  padding-left: 2rem;
 }
 
-header ul li{
+.headerWrap ul li{
   float: left;
   padding: 2rem;
 }
 
-header ul li:hover{
-  color: var(--main-color);
+.headerWrap ul li:hover{
   cursor: pointer;
-  background-color: var(--main-color);
-  color: white;
-  border-radius: 5rem;
+  animation: move 0.8s infinite;
+}
+@keyframes move {
+  0%{transform: rotate(-3deg);}
+  50%{transform: rotate(3deg);}
+  100%{transform: rotate(-3deg);}
 }
