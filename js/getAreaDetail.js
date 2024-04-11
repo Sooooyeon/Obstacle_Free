@@ -6,6 +6,7 @@ const contentid = urlParams.get('contentid');
 const title = urlParams.get('title');
 const image = urlParams.get('image');
 const addr = urlParams.get('addr1');
+
 // 데이터를 화면에 출력
 if(image !== ""){
   document.getElementById('areaInfo').innerHTML = 
@@ -17,16 +18,13 @@ if(image !== ""){
     <img src="../img/tuorareadefault.png" alt="${title}">`;
 }
 
-
 const getAreaInfo = () => {
-  console.log('config');
   $.ajax({
     method: "GET",
     url:`https://apis.data.go.kr/B551011/KorWithService1/detailWithTour1?ServiceKey=${config.apikey}&MobileOS=ETC&MobileApp=TestApp&contentId=${contentid}&_type=json`
   })
   .done((data)=>{
     const areaInfo = data.response.body.items.item[0];
-    console.log(areaInfo);
     $("#areaInfo").append(`<h4>편의정보 안내</h4>`)
     for(const item in areaInfo){
       if(areaInfo[item] !== "" && item !== "contentid"){

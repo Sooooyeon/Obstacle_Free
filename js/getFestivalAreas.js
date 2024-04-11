@@ -1,17 +1,12 @@
 import { config } from "../api.js";
 
 const getTouristAreas = () => {
-  console.log('config');
   $.ajax({
     method: "GET",
     url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=12&pageNo=1&MobileOS=ETC&MobileApp=TestApp&contentTypeId=15&_type=json`
   })
   .done((data)=>{
     const tourlistareas = data.response.body.items;
-    console.log(tourlistareas);
-    console.log(tourlistareas.item[0]);
-    console.log(tourlistareas.item[0].title);
-    console.log(tourlistareas.item[0].addr1);
     if(tourlistareas !== undefined){
       $.map(tourlistareas.item, function(item){
         if(item.firstimage !==""){
@@ -35,7 +30,6 @@ const getTouristAreas = () => {
 }
 
 getTouristAreas();
-
 
 const moveDetail = (url, title, id, image, addr1) => {
   window.location.href = `${url}?title=${title}&contentid=${id}&image=${encodeURIComponent(image)}&addr1=${encodeURIComponent(addr1)}`;

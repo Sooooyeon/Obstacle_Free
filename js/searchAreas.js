@@ -25,7 +25,6 @@ const search = (keyWord) => {
   })
   .done((data)=>{
     const searchList = data.response.body.items;
-    console.log(searchList);
     if(typeof(searchList) === "string"){
       return $("#searchList").append(
         `<li> 검색 결과가 없습니다.</li>`)
