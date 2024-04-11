@@ -4,7 +4,7 @@ const getTouristAreas = () => {
   console.log('config');
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=6&pageNo=1&MobileOS=ETC&MobileApp=TestApp&contentTypeId=15&_type=json`
+    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=12&pageNo=1&MobileOS=ETC&MobileApp=TestApp&contentTypeId=15&_type=json`
   })
   .done((data)=>{
     const tourlistareas = data.response.body.items;
