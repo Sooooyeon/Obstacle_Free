@@ -18,16 +18,14 @@ const getKeyword = (e)=>{
 
 searchButton.addEventListener("click",getKeyword);
 
-
-
 const search = (keyWord) => {
   $.ajax({
     method: "GET",
     url:`https://apis.data.go.kr/B551011/KorWithService1/searchKeyword1?serviceKey=${config.apikey}&numOfRows=6&pageNo=1&MobileOS=ETC&MobileApp=AppTest&listYN=Y&arrange=A&keyword=${keyWord}&_type=json`
   })
   .done((data)=>{
-    
     const searchList = data.response.body.items;
+    console.log(searchList);
     if(typeof(searchList) === "string"){
       return $("#searchList").append(
         `<li> 검색 결과가 없습니다.</li>`)
@@ -36,17 +34,17 @@ const search = (keyWord) => {
       $.map(searchList.item, function(item){
         if(item.firstimage !==""){
           return $("#searchList").append(
-          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
+          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1} ${item.addr2}">
             <img src=${item.firstimage} alt="${item.title}">
             <p id="tourAreaTitle">${item.title}</p>
-            <p id="tourAreaAddress">주소 : ${item.addr1}</p>
+            <p id="tourAreaAddress">주소 : ${item.addr1} ${item.addr2}</p>
           </li>`)
         } else {
           return $("#searchList").append(
             `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
               <img src="../img/tuorareadefault.png" alt="${item.title}">
               <p id="tourAreaTitle">${item.title}</p>
-              <p id="tourAreaAddress">주소 : ${item.addr1}</p>
+              <p id="tourAreaAddress">주소 : ${item.addr1} ${item.addr2}</p>
             </li>`)
         }
       })
