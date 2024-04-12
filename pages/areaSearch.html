@@ -10,7 +10,21 @@
 </head>
 
 <body>
-  <header id="header"></header>
+  <header id="header">
+    <div class="headerWrap">
+      <h1><a href="../index.html"><img src="../img/logo.png" alt="옵프"></a></h1>
+      <nav>
+        <ul id="menu">
+          <li class="category" data-code="12">관광지 보기</li>
+          <li class="category" data-code="15">축제 및 공연행사</li>
+          <li class="category" data-code="25">여행코스</li>
+          <li class="category" data-code="28">레포츠</li>
+          <li class="category" data-code="32">숙박</li>
+          <li><a href="./areaSearch.html">장소 검색하기</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <h2>장소 검색하기</h2>
   <form id="search">
     <input type="text" id="keyWord">
@@ -19,6 +33,7 @@
   <ul id="searchList"></ul>
   <footer id="footer"></footer>
   <script src="../js/headerFooter.js"></script>
+  <script src="../js/common.js"></script>
   <script type="module" src="../js/searchAreas.js"></script>
 
 </body>

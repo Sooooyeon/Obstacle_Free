@@ -25,3 +25,42 @@ $("#tourAreas").on("click", ".area", function(){
   const addr1 = $(this).data("addr1"); 
   moveDetail('./pages/areaDetail.html', this.title, this.id, image, addr1);
 });
+
+const moveCategory = (url, contentTypeId) => {
+  console.log(contentTypeId);
+  window.location.href = `${url}?contentTypeId=${encodeURIComponent(contentTypeId)}`;
+}
+
+$("#menu").on("click", ".category", function(){
+  const contentTypeId = $(this).data("code"); 
+  let url = "";
+  console.log(url);
+  console.log(contentTypeId);
+  
+  switch(contentTypeId){
+    case 12:
+      url = "./pages/touristAreas.html"
+      break;
+
+    case 15:
+      url = "./pages/festivalAreas.html"
+      break;
+
+    case 25:
+      url = "./pages/tourCourse.html"
+      break;
+
+    case 28:
+      url = "./pages/reportsAreas.html"
+      break;
+
+    case 32:
+      url = "./pages/roomAreas.html"
+      break;
+
+    default :
+  }
+
+  console.log(url);
+  if(url !== "") moveCategory(url, contentTypeId);
+});
