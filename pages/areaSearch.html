@@ -7,6 +7,7 @@
   <title>옵프 | 장소검색</title>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/search.css">
 </head>
 
 <body>
@@ -25,12 +26,15 @@
       </nav>
     </div>
   </header>
-  <h2>장소 검색하기</h2>
-  <form id="search">
-    <input type="text" id="keyWord">
-    <button>검색</button>
-  </form>
-  <ul id="searchList"></ul>
+  <main>
+    <h2>장소 검색하기</h2>
+    <form id="search">
+      <input type="text" id="keyWord" placeholder="검색 장소를 입력해주세요.">
+      <button><img src="../img/search-icon.png" alt="검색"></button>
+    </form>
+    <ul id="searchList"></ul>
+  </main>
+
   <footer id="footer"></footer>
   <script src="../js/headerFooter.js"></script>
   <script src="../js/common.js"></script>

@@ -1,0 +1,44 @@
+main h2 {
+  font-family: 'GongGothicMedium';
+  font-size: 2.4rem;
+  margin-top: 7rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+#search, #searchList {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+#keyWord{
+  width: 40rem;
+  height: 5rem;
+  border-radius: 3rem;
+  border: 2px solid var(--main-color);
+  padding: 0 2rem;
+  font-size: 2rem;
+  display: block;
+  margin: 0 auto;
+}
+
+#search{
+  position: relative;
+}
+
+#search button{
+  width: 5rem;
+  height: 5rem;
+  /* border-radius: 3rem;
+  border: 2px solid var(--main-color); */
+  margin-top: 2rem;
+  position: absolute;
+  right: -1.5rem;
+  top: -1.8rem;
+}
+
+#search button img{
+  width: 2.4rem;
+}
