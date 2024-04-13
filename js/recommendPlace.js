@@ -47,5 +47,29 @@ export const recommendPlace = [
     addr : "전북특별자치도 무주군 설천면 무설로 1324",
     contentid : "129561"
   },  
+    {
+    title : "외암민속마을",
+    image : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20171201_187%2F1512063827070g2LHd_JPEG%2F%25A5%25EC_-03.jpg",
+    addr : "충청남도 아산시 송악면 외암민속길9번길 13-2",
+    contentid : "126001"
+  },  
+    {
+    title : "상림공원",
+    image : "http://tong.visitkorea.or.kr/cms/resource/41/2996941_image2_1.jpg",
+    addr : "경상남도 함양군 함양읍 필봉산길 49",
+    contentid : "126861"
+  },  
+    {
+    title : "소양강스카이워크",
+    image : "http://tong.visitkorea.or.kr/cms/resource/73/2742973_image2_1.jpg",
+    addr : "강원특별자치도 춘천시 영서로 2663 (근화동)",
+    contentid : "2396037"
+  },  
+    {
+    title : "화성행궁",
+    image : "http://tong.visitkorea.or.kr/cms/resource/20/1999720_image2_1.jpg",
+    addr : "경기도 수원시 팔달구 정조로 825 (남창동)",
+    contentid : "129437"
+  },  
 
 ]
