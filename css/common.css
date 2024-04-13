@@ -144,7 +144,7 @@ section h2 {
 
 }
 
-#tourAreas .area img {
+#tourAreas .area img, #searchList li img{
   width: 33rem;
   aspect-ratio: 1/1;
   object-fit: cover;

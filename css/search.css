@@ -22,6 +22,7 @@ main h2 {
   font-size: 2rem;
   display: block;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 #search{
@@ -31,14 +32,32 @@ main h2 {
 #search button{
   width: 5rem;
   height: 5rem;
-  /* border-radius: 3rem;
-  border: 2px solid var(--main-color); */
   margin-top: 2rem;
   position: absolute;
-  right: -1.5rem;
-  top: -1.8rem;
+  right: 2.5rem;
+  top: -2rem;
 }
 
 #search button img{
   width: 2.4rem;
+}
+
+#searchList{
+  max-width: 600px;
+}
+
+#searchList li{
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+#searchList li img{
+  max-width: 800px;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+#tourAreaTitle, #tourAreaAddress{
+  left: 50%;
+  transform: translate(-50%);
 }
