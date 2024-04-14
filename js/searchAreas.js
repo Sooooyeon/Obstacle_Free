@@ -21,7 +21,7 @@ searchButton.addEventListener("click",getKeyword);
 const search = (keyWord) => {
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/searchKeyword1?serviceKey=${config.apikey}&numOfRows=12&pageNo=1&MobileOS=ETC&MobileApp=AppTest&listYN=Y&arrange=A&keyword=${keyWord}&_type=json`
+    url:`https://apis.data.go.kr/B551011/KorWithService1/searchKeyword1?serviceKey=${config.apikey}&MobileOS=ETC&MobileApp=AppTest&listYN=Y&arrange=A&keyword=${keyWord}&_type=json`
   })
   .done((data)=>{
     const searchList = data.response.body.items;
