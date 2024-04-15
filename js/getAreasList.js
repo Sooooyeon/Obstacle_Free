@@ -1,15 +1,17 @@
 import { config } from "../api.js";
 
+let currentPage = 1;
 const urlParams = new URLSearchParams(window.location.search);
 const contentTypeId = urlParams.get('contentTypeId');
 
-const getTouristAreas = () => {
+const getTouristAreas = (currentPage) => {
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=12&pageNo=1&MobileOS=ETC&MobileApp=TestApp&contentTypeId=${contentTypeId}&_type=json`
+    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=12&pageNo=${currentPage}&MobileOS=ETC&MobileApp=TestApp&contentTypeId=${contentTypeId}&_type=json`
   })
   .done((data)=>{
     const tourlistareas = data.response.body.items;
+    $("#tourAreas").empty();
     if(tourlistareas !== undefined){
       $.map(tourlistareas.item, function(item){
         if(item.firstimage !==""){
@@ -29,7 +31,22 @@ const getTouristAreas = () => {
         }
       })
     }
+    $("#currentPage").text(currentPage);
   })
 }
 
-getTouristAreas();
+$("#prevPage").click(function() {
+  if(currentPage > 1) {
+    currentPage -= 1;
+    getTouristAreas(currentPage);
+    window.scrollTo(0,0);
+  }
+});
+
+$("#nextPage").click(function() {
+  currentPage += 1;
+  getTouristAreas(currentPage);
+  window.scrollTo(0,0);
+});
+
+getTouristAreas(currentPage);
