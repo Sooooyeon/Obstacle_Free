@@ -100,12 +100,12 @@ function geoSuccess(position) {
           })
         }
       })
-    }
+    } 
 }
 
-
 function getError() {
-  alert('Geolocation Error');
+  console.log('Geolocation Error');
+  return $("#nearbyAreas").append(`<p id="mapError">위치 정보를 불러오지 못했어요🥲</p>`)
 }
 
 document.addEventListener("DOMContentLoaded", function() {
