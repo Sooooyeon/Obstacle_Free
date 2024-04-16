@@ -8,19 +8,6 @@ $("#tourAreas").on("click", ".area", function(){
   moveDetail('./areaDetail.html', this.title, this.id, image, addr1);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.area').forEach(item => {
-    item.addEventListener('keyup', function(e) {
-      if (e.key === "Enter" || e.keyCode === 13) {  
-        const image = $(this).data("image");  
-        const addr1 = $(this).data("addr1");
-        moveDetail('./areaDetail.html', this.title, this.id, image, addr1);
-      }
-    });
-  });
-});
-
-
 const moveCategory = (url, contentTypeId) => {
   window.location.href = `${url}?contentTypeId=${encodeURIComponent(contentTypeId)}`;
 }
@@ -59,8 +46,8 @@ $("#menu").on("click", ".category", function(){
 
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.category').forEach(item => {
-    item.addEventListener('keypress', function(e) {
-      if (e.keyCode === 13) {
+    item.addEventListener('keyup', function(e) {
+      if (e.key === "Enter" || e.keyCode === 13) {
         const contentTypeId = $(this).data("code"); 
         let url = "";
         
