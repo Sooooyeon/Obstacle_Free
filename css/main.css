@@ -5,5 +5,21 @@
   justify-content: center;background-color: var(--sub-color);
 }
 
+@media (max-width: 1080px) {
+  .banner{
+    height: 200px;
+  }
+  .banner img{
+    height: 200px;
+  }
+}
 
+@media (max-width: 600px) {
+  .banner{
+    height: 100px;
+  }
+  .banner img{
+    height: 100px;
+  }
+}
 

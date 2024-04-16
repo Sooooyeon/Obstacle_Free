@@ -323,3 +323,35 @@ footer{
 .footerlogo{
   font-family: 'GongGothicMedium';
 }
+
+@media (max-width: 1080px) {
+  html{
+    font-size: 56%;
+  }
+}
+
+@media (max-width: 768px) {
+  html{
+    font-size: 50%;
+  }
+  .headerWrap ul li{
+    font-size: 2rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerWrap{
+    font-size: 1.6rem;
+    gap: 1rem;
+  }
+  .headerWrap ul li{
+    padding: 1rem;
+  }
+  .footerWrap{
+    flex-direction: column;
+    gap: 0;
+    line-height: 3rem;
+    padding-top: 2rem;
+  }
+}
