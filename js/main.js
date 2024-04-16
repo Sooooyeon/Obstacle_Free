@@ -29,6 +29,12 @@ $("#tourAreas").on("click", ".area", function(){
   moveDetail('./pages/areaDetail.html', this.title, this.id, image, addr1);
 });
 
+$("#nearbyAreas").on("click", ".area", function(){
+  const image = $(this).data("image"); 
+  const addr1 = $(this).data("addr1"); 
+  moveDetail('./pages/areaDetail.html', this.title, this.id, image, addr1);
+});
+
 const moveCategory = (url, contentTypeId) => {
   window.location.href = `${url}?contentTypeId=${encodeURIComponent(contentTypeId)}`;
 }
