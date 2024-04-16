@@ -2,7 +2,20 @@ import { config } from "../api.js";
 
 let currentPage = 1;
 const urlParams = new URLSearchParams(window.location.search);
-const contentTypeId = urlParams.get('contentTypeId');
+let contentTypeId = urlParams.get('contentTypeId');
+
+let curUrl = window.location.href;
+console.log(curUrl.includes("touristAreas")?1:0);
+
+if(curUrl.includes("touristAreas")){
+  contentTypeId = 12;
+} else if(curUrl.includes("festivalAreas")){
+  contentTypeId = 15;
+} else if(curUrl.includes("reportsAreas")){
+  contentTypeId = 28;
+}  else if(curUrl.includes("roomAreas")){
+  contentTypeId = 32;
+} 
 
 const getTouristAreas = (currentPage) => {
   $.ajax({
