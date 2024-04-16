@@ -4,14 +4,14 @@ import { recommendPlace } from "./recommendPlace.js";
 $.map(recommendPlace, function(item){
   if(item.image !==""){
     return $("#tourAreas").append(
-    `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}">
+    `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}">
       <img src=${item.image} alt="${item.title}">
       <p id="tourAreaTitle">${item.title}</p>
       <p id="tourAreaAddress">${item.addr}</p>
     </li>`)
   } else {
     return $("#tourAreas").append(
-      `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}">
+      `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}">
         <img src="../img/tuorareadefault.png" alt="${item.title}">
         <p id="tourAreaTitle">${item.title}</p>
         <p id="tourAreaAddress">${item.addr}</p>
@@ -108,3 +108,39 @@ function getError() {
   alert('Geolocation Error');
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.category').forEach(item => {
+    item.addEventListener('keypress', function(e) {
+      if (e.keyCode === 13) {
+        const contentTypeId = $(this).data("code"); 
+        let url = "";
+        
+        switch(contentTypeId){
+          case 12:
+            url = "./pages/touristAreas.html"
+            break;
+
+          case 15:
+            url = "./pages/festivalAreas.html"
+            break;
+
+          case 25:
+            url = "./pages/tourCourse.html"
+            break;
+
+          case 28:
+            url = "./pages/reportsAreas.html"
+            break;
+
+          case 32:
+            url = "./pages/roomAreas.html"
+            break;
+
+          default :
+        }
+
+        if(url !== "") moveCategory(url, contentTypeId);
+      }
+    });
+  });
+});
