@@ -65,7 +65,7 @@ main h2 {
   aspect-ratio: 4/3;
 }
 
-#tourAreaTitle, #tourAreaAddress{
+.tourAreaTitle, .tourAreaAddress{
   left: 50%;
   transform: translate(-50%);
 }

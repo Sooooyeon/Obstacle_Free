@@ -245,7 +245,7 @@ section h2 {
   box-shadow: 1px 1px 5px rgb(195, 195, 195);
 }
 
-#tourAreaTitle {
+.tourAreaTitle {
   max-width: 26rem;
   overflow: hidden;
   white-space: nowrap;
@@ -261,7 +261,7 @@ section h2 {
   font-family: 'GongGothicMedium';
 }
 
-#tourAreaAddress {
+.tourAreaAddress {
   width: 26rem;
   position: absolute;
   bottom: 3rem;

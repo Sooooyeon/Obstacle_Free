@@ -6,15 +6,15 @@ $.map(recommendPlace, function(item){
     return $("#tourAreas").append(
     `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}" tabindex="0" role="button">
       <img src=${item.image} alt="${item.title}">
-      <p id="tourAreaTitle">${item.title}</p>
-      <p id="tourAreaAddress">${item.addr}</p>
+      <p class="tourAreaTitle">${item.title}</p>
+      <p class="tourAreaAddress">${item.addr}</p>
     </li>`)
   } else {
     return $("#tourAreas").append(
       `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}" tabindex="0" role="button">
         <img src="../img/tuorareadefault.png" alt="${item.title}">
-        <p id="tourAreaTitle">${item.title}</p>
-        <p id="tourAreaAddress">${item.addr}</p>
+        <p class="tourAreaTitle">${item.title}</p>
+        <p class="tourAreaAddress">${item.addr}</p>
       </li>`)
   }
 })
