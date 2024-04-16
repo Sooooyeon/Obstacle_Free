@@ -130,7 +130,7 @@ section h2 {
   margin-bottom: 4rem;
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   z-index: 20;
   font-size: 1.4rem;
@@ -210,6 +210,13 @@ section h2 {
 .selectBox .optionList::-webkit-scrollbar-track {background: transparent; }
 .selectBox .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
 .selectBox .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
+
+#searchBtn{
+  width: 10rem;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 6px;
+}
 
 #tourAreas {
   display: flex;

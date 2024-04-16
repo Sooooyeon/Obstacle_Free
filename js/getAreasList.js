@@ -3,7 +3,7 @@ import { config } from "../api.js";
 let currentPage = 1;
 const urlParams = new URLSearchParams(window.location.search);
 let contentTypeId = urlParams.get('contentTypeId');
-
+let areaCode = ""
 let curUrl = window.location.href;
 
 if(curUrl.includes("touristAreas")){
@@ -16,10 +16,11 @@ if(curUrl.includes("touristAreas")){
   contentTypeId = 32;
 } 
 
+
 const getTouristAreas = (currentPage) => {
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&numOfRows=12&pageNo=${currentPage}&MobileOS=ETC&MobileApp=TestApp&contentTypeId=${contentTypeId}&_type=json`
+    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&areaCode=${areaCode}&numOfRows=12&pageNo=${currentPage}&MobileOS=ETC&MobileApp=TestApp&contentTypeId=${contentTypeId}&_type=json`
   })
   .done((data)=>{
     const tourlistareas = data.response.body.items;
@@ -93,3 +94,65 @@ const handleSelect = (label, item) => {
   label.innerHTML = item.textContent;
   label.parentNode.classList.remove('active');
 }
+
+$("#searchBtn").click(function() {
+  console.log('클릭')
+  let areaName = document.querySelector('.label').textContent;
+  console.log(areaName);
+  switch(areaName){
+    case "서울":
+      areaCode = "1"
+      break;
+    case "인천":
+      areaCode = "2"
+      break;
+    case "대전":
+      areaCode = "3"
+      break;
+    case "대구":
+      areaCode = "4"
+      break;
+    case "광주":
+      areaCode = "5"
+      break;
+    case "부산":
+      areaCode = "6"
+      break;
+    case "울산":
+      areaCode = "7"
+      break;
+    case "세종":
+      areaCode = "8"
+      break;
+    case "경기":
+      areaCode = "31"
+      break;
+    case "강원":
+      areaCode = "32"
+      break;
+    case "충청북도":
+      areaCode = "33"
+      break;
+    case "충청남도":
+      areaCode = "34"
+      break;
+    case "경상북도":
+      areaCode = "35"
+      break;
+    case "경상남도":
+      areaCode = "36"
+      break;
+    case "전라북도":
+      areaCode = "37"
+      break;
+    case "전라남도":
+      areaCode = "38"
+      break;
+    case "제주":
+      areaCode = "39"
+      break;
+    default:
+      areaCode = "";
+  }
+  getTouristAreas(currentPage);
+})
