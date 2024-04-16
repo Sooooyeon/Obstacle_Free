@@ -20,23 +20,22 @@ if(curUrl.includes("touristAreas")){
 const getTouristAreas = (currentPage) => {
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&areaCode=${areaCode}&numOfRows=12&pageNo=${currentPage}&MobileOS=ETC&MobileApp=TestApp&contentTypeId=${contentTypeId}&_type=json`
-  })
-  .done((data)=>{
+    url:`https://apis.data.go.kr/B551011/KorWithService1/areaBasedList1?ServiceKey=${config.apikey}&areaCode=${areaCode}&numOfRows=12&pageNo=${currentPage}&MobileOS=ETC&MobileApp=TestApp&contentTypeId=${contentTypeId}&_type=json`,
+    success:(data)=>{
     const tourlistareas = data.response.body.items;
     $("#tourAreas").empty();
     if(tourlistareas !== undefined){
       $.map(tourlistareas.item, function(item){
         if(item.firstimage !==""){
           return $("#tourAreas").append(
-          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
+          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}" tabindex="0" role="button">
             <img src=${item.firstimage} alt="${item.title}">
             <p id="tourAreaTitle">${item.title}</p>
             <p id="tourAreaAddress">${item.addr1}</p>
           </li>`)
         } else {
           return $("#tourAreas").append(
-            `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
+            `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}" tabindex="0" role="button">
               <img src="../img/tuorareadefault.png" alt="${item.title}">
               <p id="tourAreaTitle">${item.title}</p>
               <p id="tourAreaAddress">${item.addr1}</p>
@@ -45,7 +44,11 @@ const getTouristAreas = (currentPage) => {
       })
     }
     $("#currentPage").text(currentPage);
-  })
+  },
+  error: (textStatus, errorThrown) => {
+    console.error('에러 발생:', textStatus, errorThrown);
+  }
+  });
 }
 
 $("#prevPage").click(function() {

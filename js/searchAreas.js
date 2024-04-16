@@ -32,14 +32,14 @@ const search = (keyWord) => {
       $.map(searchList.item, function(item){
         if(item.firstimage !==""){
           return $("#searchList").append(
-          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1} ${item.addr2}">
+          `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1} ${item.addr2}" tabindex="0" role="button">
             <img src=${item.firstimage} alt="${item.title}">
             <p id="tourAreaTitle">${item.title}</p>
             <p id="tourAreaAddress">주소 : ${item.addr1} ${item.addr2}</p>
           </li>`)
         } else {
           return $("#searchList").append(
-            `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
+            `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}" tabindex="0" role="button">
               <img src="../img/tuorareadefault.png" alt="${item.title}">
               <p id="tourAreaTitle">${item.title}</p>
               <p id="tourAreaAddress">주소 : ${item.addr1} ${item.addr2}</p>

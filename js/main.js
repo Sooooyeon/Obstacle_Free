@@ -4,14 +4,14 @@ import { recommendPlace } from "./recommendPlace.js";
 $.map(recommendPlace, function(item){
   if(item.image !==""){
     return $("#tourAreas").append(
-    `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}">
+    `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}" tabindex="0" role="button">
       <img src=${item.image} alt="${item.title}">
       <p id="tourAreaTitle">${item.title}</p>
       <p id="tourAreaAddress">${item.addr}</p>
     </li>`)
   } else {
     return $("#tourAreas").append(
-      `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}">
+      `<li tabindex="0" id=${item.contentid} class="area" title="${item.title}" data-image="${item.image}" data-addr1="${item.addr}" tabindex="0" role="button">
         <img src="../img/tuorareadefault.png" alt="${item.title}">
         <p id="tourAreaTitle">${item.title}</p>
         <p id="tourAreaAddress">${item.addr}</p>
@@ -90,14 +90,14 @@ function geoSuccess(position) {
           $.map(nearbyAreas.item, function(item){
             if(item.firstimage !==""){
               return $("#nearbyAreas").append(
-              `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
+              `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}" tabindex="0" role="button">
                 <img src=${item.firstimage} alt="${item.title}">
                 <p id="tourAreaTitle">${item.title}</p>
                 <p id="tourAreaAddress">${item.addr1}</p>
               </li>`)
             } else {
               return $("#nearbyAreas").append(
-                `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}">
+                `<li id=${item.contentid} class="area" title="${item.title}" data-image="${item.firstimage}" data-addr1="${item.addr1}" tabindex="0" role="button">
                   <img src="../img/tuorareadefault.png" alt="${item.title}">
                   <p id="tourAreaTitle">${item.title}</p>
                   <p id="tourAreaAddress">${item.addr1}</p>

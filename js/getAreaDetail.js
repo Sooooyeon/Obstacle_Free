@@ -21,20 +21,21 @@ if(image !== ""){
 const getAreaInfo = () => {
   $.ajax({
     method: "GET",
-    url:`https://apis.data.go.kr/B551011/KorWithService1/detailWithTour1?ServiceKey=${config.apikey}&MobileOS=ETC&MobileApp=TestApp&contentId=${contentid}&_type=json`
-  })
-  .done((data)=>{
-    const areaInfo = data.response.body.items.item[0];
-    $("#areaInfo").append(`<h4>편의정보 안내</h4>`)
-    for(const item in areaInfo){
-      if(areaInfo[item] !== "" && item !== "contentid"){
-        $("#areaInfo").append(`<li>${item} : ${areaInfo[item]}</li>`)
+    url:`https://apis.data.go.kr/B551011/KorWithService1/detailWithTour1?ServiceKey=${config.apikey}&MobileOS=ETC&MobileApp=TestApp&contentId=${contentid}&_type=json`,
+    success: (data) => {
+      const areaInfo = data.response.body.items.item[0];
+      $("#areaInfo").append(`<h4>편의정보 안내</h4>`);
+      for(const item in areaInfo){
+        if(areaInfo[item] !== "" && item !== "contentid"){
+          $("#areaInfo").append(`<li>${item} : ${areaInfo[item]}</li>`);
+        }
       }
+      $("#areaInfo").append(`<h4>오시는 길</h4><p>${addr}</p>`);
+    },
+    error: (textStatus, errorThrown) => {
+      console.error('에러 발생:', textStatus, errorThrown);
     }
-    $("#areaInfo").append(`<h4>오시는 길</h4><p id="">${addr}</p>`)
-    
-
-  })
+  });
 }
 
 getAreaInfo();
