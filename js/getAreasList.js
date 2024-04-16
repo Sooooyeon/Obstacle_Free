@@ -5,7 +5,6 @@ const urlParams = new URLSearchParams(window.location.search);
 let contentTypeId = urlParams.get('contentTypeId');
 
 let curUrl = window.location.href;
-console.log(curUrl.includes("touristAreas")?1:0);
 
 if(curUrl.includes("touristAreas")){
   contentTypeId = 12;

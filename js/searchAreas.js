@@ -9,7 +9,6 @@ let keyWord = ""
 const getKeyword = (e)=>{
   e.preventDefault();
   keyWord = searchText.value;
-  console.log(keyWord);
   while(searchList.hasChildNodes()){
     searchList.removeChild(searchList.firstChild);
   }

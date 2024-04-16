@@ -30,15 +30,12 @@ $("#tourAreas").on("click", ".area", function(){
 });
 
 const moveCategory = (url, contentTypeId) => {
-  console.log(contentTypeId);
   window.location.href = `${url}?contentTypeId=${encodeURIComponent(contentTypeId)}`;
 }
 
 $("#menu").on("click", ".category", function(){
   const contentTypeId = $(this).data("code"); 
   let url = "";
-  console.log(url);
-  console.log(contentTypeId);
   
   switch(contentTypeId){
     case 12:
@@ -64,7 +61,6 @@ $("#menu").on("click", ".category", function(){
     default :
   }
 
-  console.log(url);
   if(url !== "") moveCategory(url, contentTypeId);
 });
 
