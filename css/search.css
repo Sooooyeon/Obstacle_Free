@@ -25,6 +25,10 @@ main h2 {
   box-sizing: border-box;
 }
 
+#keyWord:focus{
+  outline: var(--main-color);
+}
+
 #search{
   position: relative;
 }
@@ -49,6 +53,10 @@ main h2 {
 #searchList li{
   margin-top: 2.5rem;
   position: relative;
+}
+
+#searchList li:last-child{
+  margin-bottom: 3rem;
 }
 
 #searchList li img{

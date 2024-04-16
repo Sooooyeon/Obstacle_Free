@@ -282,7 +282,7 @@ section h2 {
 #pagination{
   font-family: 'GongGothicMedium';
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 4rem;
   max-width: 1400px;
   width: 100%;
   display: flex;
@@ -299,4 +299,27 @@ section h2 {
   border-radius: 3rem;
   margin: 0 6rem;
   word-break: keep-all;
+}
+
+footer{
+  width: 100%;
+  height: 10rem;
+  background-color: var(--sub-color);
+  margin-top: 10rem;
+  position: absolute;
+}
+
+.footerWrap{
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  line-height: 10rem;
+}
+
+.footerlogo{
+  font-family: 'GongGothicMedium';
 }
