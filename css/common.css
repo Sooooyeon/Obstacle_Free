@@ -218,7 +218,7 @@ section h2 {
   border-radius: 6px;
 }
 
-#tourAreas {
+#tourAreas, #nearbyAreas{
   display: flex;
   flex-wrap: wrap;
   gap: 2.6rem;
@@ -226,7 +226,7 @@ section h2 {
   justify-content: center;
 }
 
-#tourAreas .area {
+#tourAreas .area, #nearbyAreas .area{
   width: 33rem;
   height: 33rem;
   position: relative;
@@ -236,7 +236,8 @@ section h2 {
 
 }
 
-#tourAreas .area img, #searchList li img{
+#tourAreas .area img, #searchList li img,
+#nearbyAreas .area img, #searchList li img{
   width: 33rem;
   aspect-ratio: 1/1;
   object-fit: cover;
