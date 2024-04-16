@@ -154,5 +154,6 @@ $("#searchBtn").click(function() {
     default:
       areaCode = "";
   }
+  currentPage = 1;
   getTouristAreas(currentPage);
 })
