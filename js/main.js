@@ -129,7 +129,6 @@ function geoSuccess(position) {
       })
       .done((data)=>{
         const nearbyAreas = data.response.body.items;
-        console.log(nearbyAreas);
         $("#nearbyAreas").empty();
         if(nearbyAreas !== undefined){
           $.map(nearbyAreas.item, function(item){
