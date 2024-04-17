@@ -71,4 +71,39 @@
 
 
 
+## 🎯 트러블 슈팅
 
+### 1. header 모듈화 관련
+
+### 2. nav bar focus가 되지 않는 문제
+
+**문제**
+> tab키와 enter키로 nav bar에 접근할 수 없는 문제가 있었습니다.
+
+**원인**
+> 페이지별로 적용되어 있던 js 파일을 하나로 통합 후 카테고리에 따라 클릭이벤트로 페이지를 이동하도록 설정 해 li태그 내의 a 태그를 제거한 것이 원인이었습니다. li태그는 기본적으로 포커스를 받을 수 있는 요소가 아니어서 접근이 불가능했습니다.
+
+**해결**
+> li 태그에 tabindex="0" role="button" 속성을 사용해 포커스를 받을 수 있도록 하고, keyup 이벤트로 enter키를 사용해 접근 가능하도록 개선했습니다.
+
+```html
+<nav>
+  <ul id="menu">
+    <li class="category" data-code="12" tabindex="0" role="button">관광지 보기</li>
+    <li class="category" data-code="15" tabindex="0" role="button">축제 및 공연행사</li>
+    <li class="category" data-code="28" tabindex="0" role="button">레포츠</li>
+    <li class="category" data-code="32" tabindex="0" role="button">숙박</li>
+    <li><a href="./pages/areaSearch.html">장소 검색하기</a></li>
+  </ul>
+</nav>
+```
+
+```js
+document.querySelectorAll('.category').forEach(item => {
+  item.addEventListener('keyup', function(e) {
+    if (e.key === "Enter" || e.keyCode === 13) {
+        ...생략
+    }
+  });
+});
+```
