@@ -1,3 +1,4 @@
+// 상세페이지로 이동
 const moveDetail = (url, title, id, image, addr1) => {
   window.location.href = `${url}?title=${title}&contentid=${id}&image=${encodeURIComponent(image)}&addr1=${encodeURIComponent(addr1)}`;
 }
@@ -8,6 +9,9 @@ $("#tourAreas").on("click", ".area", function(){
   moveDetail('./areaDetail.html', this.title, this.id, image, addr1);
 });
 
+
+
+// 카테고리 클릭시 해당 페이지로 이동
 const moveCategory = (url, contentTypeId) => {
   window.location.href = `${url}?contentTypeId=${encodeURIComponent(contentTypeId)}`;
 }
@@ -44,6 +48,8 @@ $("#menu").on("click", ".category", function(){
 });
 
 
+
+// enter키로 이동 로직
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.category').forEach(item => {
     item.addEventListener('keyup', function(e) {

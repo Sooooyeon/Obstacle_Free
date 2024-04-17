@@ -51,6 +51,10 @@ const getTouristAreas = (currentPage) => {
   });
 }
 
+getTouristAreas(currentPage);
+
+
+// 페이지네이션
 $("#prevPage").click(function() {
   if(currentPage > 1) {
     currentPage -= 1;
@@ -65,9 +69,8 @@ $("#nextPage").click(function() {
   window.scrollTo(0,0);
 });
 
-getTouristAreas(currentPage);
 
-
+// 지역 선택
 const label = document.querySelectorAll('.label');
 label.forEach(function(lb){
   lb.addEventListener('click', e => {
@@ -98,10 +101,10 @@ const handleSelect = (label, item) => {
   label.parentNode.classList.remove('active');
 }
 
+
+// 지역 검색
 $("#searchBtn").click(function() {
-  console.log('클릭')
   let areaName = document.querySelector('.label').textContent;
-  console.log(areaName);
   switch(areaName){
     case "서울":
       areaCode = "1"

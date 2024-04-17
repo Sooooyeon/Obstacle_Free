@@ -1,6 +1,7 @@
 import { config } from "../api.js";
 import { recommendPlace } from "./recommendPlace.js";
 
+// 추천 장소 화면 출력
 $.map(recommendPlace, function(item){
   if(item.image !==""){
     return $("#tourAreas").append(
@@ -19,6 +20,8 @@ $.map(recommendPlace, function(item){
   }
 })
 
+
+// 상세페이지 이동
 const moveDetail = (url, title, id, image, addr1) => {
   window.location.href = `${url}?title=${title}&contentid=${id}&image=${encodeURIComponent(image)}&addr1=${encodeURIComponent(addr1)}`;
 }
@@ -39,6 +42,8 @@ const moveCategory = (url, contentTypeId) => {
   window.location.href = `${url}?contentTypeId=${encodeURIComponent(contentTypeId)}`;
 }
 
+
+// 카테고리 이동
 $("#menu").on("click", ".category", function(){
   const contentTypeId = $(this).data("code"); 
   let url = "";
@@ -71,6 +76,46 @@ $("#menu").on("click", ".category", function(){
 });
 
 
+// enter키로 이동 로직
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.category').forEach(item => {
+    item.addEventListener('keyup', function(e) {
+      if (e.keyCode === 13) {
+        const contentTypeId = $(this).data("code"); 
+        let url = "";
+        
+        switch(contentTypeId){
+          case 12:
+            url = "./pages/touristAreas.html"
+            break;
+
+          case 15:
+            url = "./pages/festivalAreas.html"
+            break;
+
+          case 25:
+            url = "./pages/tourCourse.html"
+            break;
+
+          case 28:
+            url = "./pages/reportsAreas.html"
+            break;
+
+          case 32:
+            url = "./pages/roomAreas.html"
+            break;
+
+          default :
+        }
+
+        if(url !== "") moveCategory(url, contentTypeId);
+      }
+    });
+  });
+});
+
+
+// 위치 기반 주변 장소 출력
 navigator.geolocation.getCurrentPosition(geoSuccess, getError);
 
 function geoSuccess(position) {
@@ -114,39 +159,3 @@ function getError() {
   return $("#nearbyAreas").append(`<p id="mapError">위치 정보를 불러오지 못했어요🥲</p>`)
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.category').forEach(item => {
-    item.addEventListener('keypress', function(e) {
-      if (e.keyCode === 13) {
-        const contentTypeId = $(this).data("code"); 
-        let url = "";
-        
-        switch(contentTypeId){
-          case 12:
-            url = "./pages/touristAreas.html"
-            break;
-
-          case 15:
-            url = "./pages/festivalAreas.html"
-            break;
-
-          case 25:
-            url = "./pages/tourCourse.html"
-            break;
-
-          case 28:
-            url = "./pages/reportsAreas.html"
-            break;
-
-          case 32:
-            url = "./pages/roomAreas.html"
-            break;
-
-          default :
-        }
-
-        if(url !== "") moveCategory(url, contentTypeId);
-      }
-    });
-  });
-});

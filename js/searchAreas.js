@@ -52,6 +52,8 @@ const search = (keyWord) => {
   })
 }
 
+
+// 상세페이지로 이동
 const moveDetail = (url, title, id, image, addr1) => {
   window.location.href = `${url}?title=${title}&contentid=${id}&image=${encodeURIComponent(image)}&addr1=${encodeURIComponent(addr1)}`;
 }
